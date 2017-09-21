@@ -1,0 +1,31 @@
+version: "3"
+services:
+  db:
+    build: db
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      MYSQL_USER: mtx
+      MYSQL_PASSWORD: mtx123
+      MYSQL_ROOT_PASSWORD: mtxroot
+      MYSQL_DATABASE: matrix
+    restart: on-failure
+
+  frontend:
+    build:
+      context: ./frontend
+    volumes:
+      - ../apps/frontend/:/opt/matrix/
+    ports:
+      - 8089:8089
+      - 8090:8090
+    dns:
+      - 192.168.24.10
+    environment:
+      DOCKER_ENV: "true"
+    restart: on-failure
+
+volumes:
+
+  db:
+    driver: local
