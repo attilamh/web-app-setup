@@ -65,7 +65,7 @@ nginx`.
 ## Current Docker Compose Services:
 
 - frontend (official Debian node)
-- db (MySQL only used by the builder right now) (official Debian MySQL)
+- db (MySQL to be used by the back-end eventually) (official Debian MySQL)
 
 ## Installing Docker
 
