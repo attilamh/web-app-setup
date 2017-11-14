@@ -7,24 +7,28 @@ Initialization steps:
   2. checkout from git the project setup by running:
     git clone https://github.com/attilamh/web-app-setup.git .
 
-  3. Run bin/setup-projects.sh to install all project dependencies that are in other git repositories and start up your web application.
+  3. Run bin/setup-projects.sh to install all project dependencies that are in other git repositories and build your web application.
 
 
 ## Run project using Docker Compose
 
 If you don't have Docker installed yet, there are installation instructions at the end of this readme.
 
-## Using shell scripts
+## Start-up using shell scripts
 
-  1. bin/fe-bash.sh - To start frontend service for development, just run fe-bash.sh from the bin folder. It will give you a command prompt access to the machine. You can run all npm commands from the folder and work on your project with it. This script is to allow for more control over the dev environment. Basic development needs will work with bin/fe-dev.sh script, see below.
+  1. bin/app-dev.sh - Start up the whole application with docker-compose.
+  
+  2. bin/fe-bash.sh - To start frontend service for development, just run fe-bash.sh from the bin folder. It will give you a command prompt access to the machine. You can run all npm commands from the folder and work on your project with it. This script is to allow for more control over the dev environment. Basic development needs will work with bin/fe-dev.sh script, see below.
 
-  2. bin/fe-dev.sh - This will start up the frontend service in development mode automatically. With bin/fe-bash.sh, you would need to run the script and then type: npm start at the command line to get the same effect.
+  3. bin/fe-dev.sh - This will start up the frontend service in development mode automatically. With bin/fe-bash.sh, you would need to run the script and then type: npm start at the command line to get the same effect.
 
-  3. bin/cleanDockerImages.sh - run to clean all docker images from your machine.
+## Maintenance 
 
-  4. bin/cleanDockerContainers.sh - run to clean all docker containers from your machine.
+  1. bin/cleanDockerImages.sh - run to clean all docker images from your machine.
 
-  5. bin/cleanDockerVolumes.sh - run to clean all docker volumes from your machine.
+  2. bin/cleanDockerContainers.sh - run to clean all docker containers from your machine.
+
+  3. bin/cleanDockerVolumes.sh - run to clean all docker volumes from your machine.
 
 ## Using Docker
 

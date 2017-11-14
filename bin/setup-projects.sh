@@ -14,4 +14,5 @@ cp ../apps/frontend/package.json ../setup/frontend
 #git clone https://github.com/attilamh/backend.git ../apps/backend
 
 cd ../setup
-docker-compose up --build
+docker-compose build --no-cache
+
