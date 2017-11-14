@@ -9,8 +9,9 @@ git clone https://github.com/attilamh/frontend.git ../apps/frontend
 # copy package.json to fronted docker so install can succeed
 cp ../apps/frontend/package.json ../setup/frontend
 
-mkdir -p ../apps/backend
-git clone https://github.com/attilamh/frontend.git ../apps/backend
+# TODO
+#mkdir -p ../apps/backend
+#git clone https://github.com/attilamh/backend.git ../apps/backend
 
 cd ../setup
 docker-compose up --build

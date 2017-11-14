@@ -7,7 +7,7 @@ Initialization steps:
   2. checkout from git the project setup by running:
     git clone https://github.com/attilamh/web-app-setup.git .
 
-  3. Run bin/setup-projects.sh to install all project dependencies that are in other git repositories.
+  3. Run bin/setup-projects.sh to install all project dependencies that are in other git repositories and start up your web application.
 
 
 ## Run project using Docker Compose
