@@ -10,4 +10,4 @@ COPY package.json /opt/matrix/
 
 RUN npm install
 #CMD /bin/bash
-CMD npm start
+CMD npm --silent start

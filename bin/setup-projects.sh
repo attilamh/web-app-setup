@@ -1,7 +1,7 @@
 #/bin/bash
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
-mkdir -p ../libs/maven ../libs/node_modules
+mkdir -p ../libs/maven
 
 # check out all other repo-s and setup docker compose
 
