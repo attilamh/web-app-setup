@@ -12,7 +12,7 @@ Initialization steps:
   4. Run bin/app-dev.sh to run the application. See the URLs section for more info.
 
   5. Setup backend development:
-      a. Open your Java IDE and set the Maven location to libs/maven. For Eclipse that would be: Preferences -> Maven -> User Settings.
+      a. Open your Java IDE and set the Maven location to libs/maven. For Eclipse that would be: Preferences -> Maven -> User Settings is set to libs/maven/settings.ide.xml.
       b. Import Maven project from apps/backend.
 
   6. Setup frontend development:

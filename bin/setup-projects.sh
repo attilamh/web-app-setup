@@ -24,6 +24,8 @@ git clone https://github.com/attilamh/backend.git apps/backend
 
 # create maven repo folder
 mkdir -p libs/maven
+ln -s ~/.m2/repository libs/maven/repository 
+
 # update backend settings to proper folder location
 projectHome="$( pwd )"
 searchString="\\$\\{project\\.home\\}"
