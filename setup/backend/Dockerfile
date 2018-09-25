@@ -1,9 +1,13 @@
-FROM maven:3.3.9-jdk-8-alpine
+FROM openjdk:8
+#FROM maven:3.5.2-jdk-8-alpine
 
-COPY settings.xml /usr/share/maven/ref/
-COPY settings.ide.xml /usr/share/maven/ref/settings.ide.xml
+RUN apt-get update && apt-get -y upgrade 
+RUN apt-get install -y -q vim mc syslog-ng
 
-RUN mkdir -p /opt/matrix/
-WORKDIR /opt/matrix/
+COPY settings.xml /root/.m2/
+COPY settings.ide.xml /root/.m2/settings.ide.xml
 
-CMD mvn spring-boot:run
+RUN mkdir -p /opt/app/
+WORKDIR /opt/app/
+
+CMD ["sh", "-c", "./mvnw spring-boot:run"]

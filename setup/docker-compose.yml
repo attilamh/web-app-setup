@@ -1,41 +1,50 @@
-version: "3"
+version: "3.6"
 services:
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
   db:
     build: 
       context: ./db
     volumes:
       - /var/lib/mysql
     environment:
-      MYSQL_USER: mtx
-      MYSQL_PASSWORD: mtx123
-      MYSQL_ROOT_PASSWORD: mtxroot
-      MYSQL_DATABASE: matrix
+      MYSQL_USER: myapp
+      MYSQL_PASSWORD: myapp123
+      MYSQL_ROOT_PASSWORD: myapproot
+      MYSQL_DATABASE: myapp
     restart: on-failure
+
+  backend:
+    build:
+      context: ./backend
+    volumes:
+      - ../apps/backend/:/opt/app/
+      - ../libs/maven/:/root/.m2
+    ports:
+      - 8080:8080
+      - 9000:9000
+      - 9999:9999
+      - 8443:8443
+    links:
+      - db:db
+      - redis:redis
 
   frontend:
     build:
       context: ./frontend
     volumes:
-      - ../apps/frontend/:/opt/matrix/
+      - ../apps/frontend/:/opt/app/
       # would be nice to mount the node_modules also on the "shared" volume 
       # but due to node install running at build time, currently this is not possible
-      - /opt/matrix/node_modules/
+      - /opt/app/node_modules/
     ports:
       - 8089:8089
       - 8090:8090
     environment:
       DOCKER_ENV: "true"
     restart: on-failure
-  backend:
-    build:
-      context: ./backend
-    volumes:
-      - ../apps/backend/:/opt/matrix/
-      - ../libs/maven/:/root/.m2
-    ports:
-      - 8080:8080
-    links:
-      - db:db
 
 volumes:
 
